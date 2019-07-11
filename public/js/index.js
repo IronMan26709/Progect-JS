@@ -1,26 +1,30 @@
-// import './js/regist.js'
+const main = document.querySelector("main")
 ///////////////////////////////////////   Delete Sigh In and Register buttons    /////////////////////////////////
-let delRegSignInBtn = function() {
-       regBtn.remove(),
-       signInBtn.remove()
+main.regBtn = document.getElementById('registParagraph');
+main.signInBtn = document.getElementById("sign-inBtn")
+
+
+
+
+main. delRegSignInBtn = function() {
+      main.regBtn.remove(),
+      main.signInBtn.remove()
 }
 ///////////////////////////////////////////////      added  registration       ////////////////////////////////////
-const regBtn = document.getElementById('registParagraph');
-regBtn.onclick = function(event) {
-  delRegSignInBtn();
-  var regpage = document.getElementById("registrlog").appendChild(document.createElement("register-page"));
-  regpage.setAttribute("markup", "./chanks/chank1.html");
-  regpage.setAttribute("css", "./chanks/chank1.css"); 
-}
-;
+
+main.regBtn.onclick = function(event) {
+  main.delRegSignInBtn();
+  main.regpage = main.appendChild(document.createElement("register-page"));
+  main.regpage.setAttribute("markup", "../chanks/regist.html");
+  main.regpage.setAttribute("css", "../chanks/regist.css"); 
+};
 ////////////////////////////////////////////         Sign - In    ///////////////////////////////////////////////
-const signInBtn = document.getElementById("sign-inBtn");
-signInBtn.onclick =function(event){
-  delRegSignInBtn();
-  var signInParent = document.getElementById("signInWindw").appendChild(document.createElement("sign-in-user"));
-  signInParent.setAttribute("markup2","./chanks/login.html");
-  signInParent.setAttribute("css2","./chanks/login.css");
-}
+main.signInBtn.onclick = function (event) {
+  main.delRegSignInBtn();
+  main.signInParent = main.appendChild(document.createElement("signin-page"));
+  main.signInParent.setAttribute("markup","../chanks/signIn.html");
+  main.signInParent.setAttribute("css","../chanks/signIn.css");
+};
 ///////////////////////////////////////////////////////////////////////
 let ava = document.getElementById('avatarka');
 let userId = document.cookie.split('; ')

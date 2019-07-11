@@ -126,7 +126,7 @@ class RegisterPage extends HTMLElement {
       .then(() => this.getElems())
   }
 
-  getElems() {
+  getElems() {``
     this.userName = this.shadow.querySelector("#name")
     this.userEmail = this.shadow.querySelector("#input-email2")
     this.userPhone = this.shadow.querySelector("#phone")
