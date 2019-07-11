@@ -1,0 +1,94 @@
+.regpage{
+	width: 700px;
+   height: 400px;
+   margin: 0 auto;
+   position: absolute;
+   top:0px;
+   left:0px;
+   background: #353535;	
+}
+/****************************************************************************/
+
+
+.regpage .reghead{
+    background:  #4cb1ca;
+    padding: 20px;
+    color: whitesmoke;
+    font-weight: 0;
+}
+.reghead h1{
+    margin: 0 auto;
+    padding-left: 45px;
+    color: whitesmoke;
+}
+.login {
+    width: 350px;
+    padding: 15px;
+    margin-left: 150px;
+}
+.form-control{
+    width: 100%;
+    margin: 5px 0 10px;
+    border: 1px solid #4cb1ca;
+    border-radius: 7px;
+    outline:none;
+    padding: 5px 10px;
+}
+.leftside{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.rightside{
+    width:50%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.regbody{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.registration{
+    position:absolute;
+    width: 350px;
+    padding-left: 235px ;
+    left:40px;
+
+}
+ h2 , label {
+    color: whitesmoke ;
+}
+.control-label::before{
+    content: "*";
+    color: red;
+    margin-right: 10px;
+}
+
+button{
+    border-radius: 5px;
+    background: #03738f;
+    border: 0;
+    color: whitesmoke;
+    padding: 5px 15px;
+    margin: 0 auto;     
+    display: block;
+    outline:none;
+    transition: all 0.3s linear;
+}
+button:hover{
+    cursor: pointer;
+    background: red;
+    transform: scale(1.2)
+}
+img {
+    width: 160px;
+    height: 160px;
+    margin-left: 40px;
+    position: absolute;
+    left: 27px;
+    top: 85px;
+}

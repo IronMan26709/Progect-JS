@@ -1,0 +1,323 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+ HTML5 display-role reset for older browsers 
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+body{
+	width: 100%;
+	height: 100%;
+}
+.wrap{
+	display: block;
+	background: #353535;
+	width: 100%;
+}
+header{
+	background:#f8f6f6;
+	height: 65px;
+	width: 100%;
+}
+.headerFlex{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
+}
+
+.logoHeaderWrap{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.logo{
+		width: 50px;
+		margin-left: 7px;
+    	margin-top: 8px;
+}
+.brandName{
+	font-size: 30px;
+	font-family:  BigNoodleTitling Regular;
+	color: #696969;
+	margin-top:7px; 
+	margin-left: 20px;
+}
+.MenuActive{
+	display: none;
+}
+    /************* more than 768px ****************  */
+    @media(min-width:768px){
+	.seccond{
+		width:40px;
+		height:40px;
+		padding: 1px;
+		border:3px solid #696969;
+		border-radius: 50%;
+	}
+	.seccond img{
+		width:40px;
+		border-radius: 50%;
+	}
+	.inner{
+		background-origin: 
+	}
+	.burger{
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.first{
+		margin-right: 20px;
+		display:contents;
+	}
+	.first p{
+		font-family: Roboto Thin;
+		font-size: 18px;
+		margin-right: 20px;
+
+	}
+	.footerWrap{
+		width:200px;
+		margin-left: 25px;
+	}	
+	.footerWrap{
+		width:200px;
+		margin-left: 25px;
+	}
+	.logoFooterWrap{
+		padding-top: 10px;
+		display:flex;
+		justify-content:space-between; 
+		align-items: center;
+	}
+	
+}	
+/************************  for meddia         ***********************/
+@media(max-width:767px){
+	.brandName{ 
+		margin-left: 180px;
+	}
+	.logo{
+    	margin-left: 35px;
+	}
+	.first p{
+		display: none;
+	}
+	.seccond img{
+		display: none;
+	}
+	.burger{
+		width: 38px;
+		height: 25px;
+		margin-right: 13px;
+		margin-top: 5px;
+		position: relative;
+	}
+	.burger div{
+		width:38px;
+		height:3px;
+		background:#554948;
+		position: absolute;
+	}
+	.burger .first{
+	}
+	.burger .seccond{
+		top:12px;
+	}
+	.burger .third{
+		top:24px;
+	}
+
+
+
+
+
+		/**********    for menu burger active    *****************/
+	
+
+
+
+	/*menu .MenuActive{
+		height: 300px;
+		width: 200px;
+		position: absolute;
+		right: -42px;
+		top:-20px;
+		display:flex;
+		justify-content: space-between;	
+		align-items: start;
+		opacity: 0.7;
+		background:#353535;
+	}
+	.MenuActive ul{
+		margin:0 auto;
+	}
+	ul li{
+		margin: 30px;
+		font-family: Roboto Light;
+		font-size: 18px;
+		color: #f5f5f5;
+	}*/
+
+
+/**********************************************************************************/
+
+
+	.logoFooterWrap{
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+		align-items:  center;
+		margin:0 auto;
+	}
+	
+}
+main{
+	position: relative;
+	background: #353535;
+	min-height: 480px;
+	width: 700px;
+	margin:0 auto;
+	padding-top:20px; 
+}
+/*.wallet{
+	width: 200px;
+	height: 250px;
+	background: #535353;
+	padding-top: 5px;
+	position: relative;
+}
+.wallet h3{
+	font-size: 18px;
+	color: #ffff;
+	font-family:roboto bolt;
+	opacity: 0.7;
+	margin-left: 10px;	
+}
+.headerWallet{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+.menuWallet{
+	width: 38px;
+	height: 25px;
+	position: relative;
+}
+.menuWallet div{
+	width:25px;
+	height:2px;
+	background:#fff;
+	position: absolute;
+
+}
+.firstLine{
+	top:4px;
+}
+.secondLine{
+	top:12px;
+}
+.thirdLine{
+	top:20px;
+}
+.info div{
+	display:flex;
+	justify-content: space-between;
+	padding:3px 10px 0 10px;
+}
+.balanceGrn{
+	display:flex;
+	justify-content: space-between;
+	padding:0 10px 0 10px;
+}
+.expenses p:nth-child(even){
+	color: red;
+}
+.actions{
+	width: 200px;
+	position:absolute;
+	left:0;
+	bottom:10px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+}
+.actions input{
+	padding: 0;
+	margin:0;
+	border-radius:6px;
+	width:90px;
+	height:35px;
+}
+.actions input:nth-child(1){
+	margin-left: 4px;
+}
+.actions input:nth-child(2){
+	margin-right: 4px;
+}
+.info p{
+	font-family: Roboto Light;
+	font-size: 20px;
+}*/
+/*********************************************************************/
+footer{ 
+	background:#171f23;
+	height: 60px;
+	width: 100%;
+}
+.logFooter{
+		width:30px;
+		margin-top: 5px;	
+	}
+.slognFooter{
+	font-family: BigNoodleTitling Regular
+	font-size:24px;
+	color:#fbefee;
+}
+.layout{
+	position: relative;
+	width: 700px;
+	height: 100%;
+	/*border:1px red solid ;*/
+	margin:0 auto;
+}
