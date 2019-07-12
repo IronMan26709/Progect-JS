@@ -33,11 +33,15 @@ header{
     border-radius: 7px;
     outline:none;
     padding: 5px 10px;
+    color:black;
 }
 .leftside{
     width: 50%;
     display: flex;
     justify-content: center;
+}
+#avatarka{
+    color:white;
 }
 .leftside .form-group{
     display: block;
@@ -49,7 +53,6 @@ header{
     width:50%;
     display: flex;
     justify-content: center;
-
 }
 
 .regbody{
@@ -76,7 +79,7 @@ h2 , label {
     color: red;
 }
 
-button{
+button ,#register-button{
     border-radius: 5px;
     background: #03738f;
     border: 0;

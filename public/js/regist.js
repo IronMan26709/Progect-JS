@@ -126,19 +126,25 @@ class RegisterPage extends HTMLElement {
       .then(() => this.getElems())
   }
 
-  getElems() {``
+  getElems() {
     this.userName = this.shadow.querySelector("#name")
-    this.userEmail = this.shadow.querySelector("#input-email2")
+    this.userEmail = this.shadow.querySelector("#input-email")
     this.userPhone = this.shadow.querySelector("#phone")
-    this.userPassword = this.shadow.querySelector("#input-password2")
+    this.userPassword = this.shadow.querySelector("#input-password")
+    this.userPasswordRepeat = this.shadow.querySelector("#input-passwordRepeat")
     this.userPhoto = this.shadow.querySelector("#avatarka")
     this.btn = this.shadow.querySelector("#register-button")
-    this.preview = this.shadow.querySelector("#preview")
-
+    this.preview = this.shadow.querySelector("#preview") 
+    this.userPhoto.disabled = true
+    this.userPasswordRepeat.disabled = true
+    this.userPassword.disabled = true
+    this.userPhone.disabled = true
     this.userPassword.onchange = function (event) {
-      document.cookie = `hash=${Sha256.hash(this.value)}`
+        document.cookie = `hash=${Sha256.hash(this.value)}`
+      }
+    this.userName.onchange = function(event) {
+      event.target.valid = event.target.value.length >= 6 ?  this.style.background = "#c7f5ac" : this.style.background = "#f93636"
     }
-
     this.shadow.querySelector('input[type="file"]').onchange = function (event) {
       let file = event.target.files[0]
       file.type.indexOf("image") === 0 ? this.preview.src = URL.createObjectURL(file) :
