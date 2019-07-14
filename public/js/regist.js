@@ -1,4 +1,4 @@
-// // const h1 = document.getElementById("h1")
+  // // const h1 = document.getElementById("h1")
 // // const main = document.getElementById("main")
 
 // // main.onclick = function (ev) {
@@ -135,16 +135,26 @@ class RegisterPage extends HTMLElement {
     this.userPhoto = this.shadow.querySelector("#avatarka")
     this.btn = this.shadow.querySelector("#register-button")
     this.preview = this.shadow.querySelector("#preview") 
-    this.userPhoto.disabled = true
-    this.userPasswordRepeat.disabled = true
-    this.userPassword.disabled = true
-    this.userPhone.disabled = true
+    // this.userPhoto.disabled = true
+    // this.userPasswordRepeat.disabled = true
+    // this.userPassword.disabled = true
+    // this.userPhone.disabled = true
     this.userPassword.onchange = function (event) {
         document.cookie = `hash=${Sha256.hash(this.value)}`
       }
-    this.userName.onchange = function(event) {
-      event.target.valid = event.target.value.length >= 6 ?  this.style.background = "#c7f5ac" : this.style.background = "#f93636"
-    }
+    this.userName.onchange = function (event) {
+                event.target.valid = event.target.value.length >= 2
+                console.log( event.target.valid)
+               event.target.valid ? this.style.background = "#c7f5ac" : this.style.background = red
+               if(event.target.valid) {
+                this.userEmail.disabled = false
+                this.userPhone.disabled = false
+               }
+               else {
+                this.userEmail.disabled = true
+                this.userPhone.disabled = true
+               }
+            }.bind(this)
     this.shadow.querySelector('input[type="file"]').onchange = function (event) {
       let file = event.target.files[0]
       file.type.indexOf("image") === 0 ? this.preview.src = URL.createObjectURL(file) :
@@ -153,7 +163,7 @@ class RegisterPage extends HTMLElement {
 
     this.btn.onclick = function (event) {
        this.remove();
-      fetch("https://curasa.glitch.me/users", {
+      fetch("https://fea13-andrew.glitch.me/owner", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -163,14 +173,15 @@ class RegisterPage extends HTMLElement {
           email: this.userEmail.value,
           phone: this.userPhone.value,
           avatar: this.preview.src,
-          passHash: Sha256.hash(this.userPassword)
+          passHash: Sha256.hash(this.userPassword.value)
+
         })
       })
         .then(response => response.json())
           .then(response => {
            let currentUserResponse = response  
-            document.cookie = `userId=${currentUserResponse.id};
-            pass=${currentUserResponse.passHash};`;
+            document.cookie = `userEmail=${currentUserResponse.email};
+            pass=${currentUserResponse.passHash}`;
             document.body.querySelector("#avatarka").src = currentUserResponse.avatar;
             let first = document.getElementsByClassName('first')[0];     
             first.appendChild(document.createElement("p")).textContent = currentUserResponse.name;

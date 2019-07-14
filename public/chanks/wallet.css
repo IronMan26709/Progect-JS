@@ -1,4 +1,4 @@
-.wallet{
+/*.wallet{
 	width: 200px;
 	height: 250px;
 	background: #535353;
@@ -60,7 +60,7 @@
 	width: 200px;
 	/*position:absolute;
 	left:0;
-	bottom:10px;*/
+	bottom:10px;
 	margin-bottom: 15px; 
 	display: flex;
 	justify-content: space-between;
@@ -83,4 +83,58 @@
 .info p{
 	font-family: Roboto Light;
 	font-size: 20px;
+}*/
+
+
+
+html {
+  background-color: #777;
+}
+
+body {
+  background-color: #fff;
+  padding: 40px;
+  margin: 0 calc(50% - 450px);
+}
+
+@media screen and (max-width: 900px) {
+  body { margin: 0 0; }
+}
+примерно так:
+* {
+  font-family: Arial;
+}
+
+section {
+  border: solid 1px grey;
+  padding: 10px 20px;
+  margin: 20px 0;
+}
+
+input {
+  padding: 5px 10px;
+  outline: #f50;
+}
+
+button {
+  background: linear-gradient(to right, var(--button-color), var(--button-color), var(--button-color));
+  padding: 10px 20px;
+  font-family: Mali, Montserrat, Arial;
+  font-size: 1.2rem;
+  border:0;
+  color: var(--button-text-color);
+  box-shadow: 1px 1px 2px #00000070;
+  border-left: 18px solid #f50,
+               15px dotted #09b;
+}
+
+button:hover {
+  animation: button-hover 0.2s ease alternate 2;
+  box-shadow: 0px 0px 2px #00000050;
+  text-shadow: 1px 1px 1px #005577de;
+  box-sizing: border-box;
+}
+
+@keyframes button-hover {
+   ...
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
@@ -6,41 +6,60 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://cdn.rawgit.com/chrisveness/crypto/4e93a4d/sha256.js"></script>
 	<title>Manage Your Money</title>
-</head>
-<body>
-	<div class="wrap">
-		<header>
-			<div class ="layout">
-				<div class = "headerFlex">
-					<div class="logoHeaderWrap">
-						<img  class = "logo "src="png/UIHere.png" alt="Money Logo">
-						<h1 class = "brandName" >Manage Your Money</h1>
+</head> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Manage Your Money</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <link id="favicon" rel="icon" href="https://cdn.glitch.com/c54bf865-364f-4c70-a071-e24900743fd0%2Fa-level-ico.png?v=1561722122996" type="image/x-icon">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Mali|Poppins|Roboto|Montserrat|&display=swap" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/chrisveness/crypto/4e93a4d/sha256.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+      let currentUser = {
+        'user-name': "unknown",
+        'user-photo': "https://upload.wikimedia.org/wikipedia/commons/8/87/Avatar_poe84it.png"
+      }
+    </script>
+  </head>
+	<body>
+		<div class="wrap">
+			<header>
+				<div class ="layout">
+					<div class = "headerFlex">
+						<div class="logoHeaderWrap">
+							<img  class = "logo "src="png/UIHere.png" alt="Money Logo">
+							<h1 class = "brandName" >Manage Your Money</h1>
+						</div>
+						<menu class = "burger">
+								<div class="first">
+									<p id= "sign-inBtn" >Вход</p>
+									<p id="registParagraph" >Регистрация</p>
+								</div>
+								<div class="seccond">
+									<img  id ="avatarka" src=" ../avatar/i05.png " alt="avatar">
+								</div>
+								<div class="third"></div>
+
+								<div class="MenuActive">
+									<ul>
+										<li>Lorem ipsum.1</li>
+										<li>Lorem ipsum.2</li>
+										<li>Lorem ipsum.3</li>
+										<li>Lorem ipsum.4</li>
+										<li>Lorem ipsum.5</li>
+										<li>Lorem ipsum.6</li>
+								</div>
+						</menu>
 					</div>
-					<menu class = "burger">
-							<div class="first">
-								<p id= "sign-inBtn" >Вход</p>
-								<p id="registParagraph" >Регистрация</p>
-							</div>
-							<div class="seccond">
-								<img  id ="avatarka" src=" ../avatar/i05.png " alt="avatar">
-							</div>
-							<div class="third"></div>
 
-							<div class="MenuActive">
-								<ul>
-									<li>Lorem ipsum.1</li>
-									<li>Lorem ipsum.2</li>
-									<li>Lorem ipsum.3</li>
-									<li>Lorem ipsum.4</li>
-									<li>Lorem ipsum.5</li>
-									<li>Lorem ipsum.6</li>
-							</div>
-					</menu>
 				</div>
-
-			</div>
-		</header>
-		<main>
+			</header>
+			<main>
+				<p id="Show-pocket">Show current pocket</p>
 				<!-- <section>
 					<h1>Кошельки пользователя</h1>
 					<p onclick = "newWallet()" class="btnNewWallet"> Добавить Кошелек </p>	
@@ -101,6 +120,7 @@
 		<script src="js/signIn.js"></script>
 		<script src="js/regist.js"></script>
 		<script src="js/index.js"></script>
+		<script src="js/new-pocket.js"></script>
 	</div>
 </body>
 </html>

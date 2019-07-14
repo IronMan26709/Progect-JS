@@ -1,11 +1,19 @@
 const main = document.querySelector("main")
+
+
+document.getElementsByTagName ( "main" )[0]
+    .addEventListener ( "new-pocket", showCurrentPocket )
+
+function showCurrentPocket ( event ) {
+  console.log ( event.type, event.pocketData )
+}
 ///////////////////////////////////////   Delete Sigh In and Register buttons    /////////////////////////////////
-main.regBtn = document.getElementById('registParagraph');
+main.regBtn = document.getElementById('registParagraph')
 main.signInBtn = document.getElementById("sign-inBtn")
-
-
-
-
+main.showPocket = document.getElementById("Show-pocket")
+main.showPocket.onclick = function (event) {
+  main.appendChild(document.createElement("new-pocket-element"))
+}
 main. delRegSignInBtn = function() {
       main.regBtn.remove(),
       main.signInBtn.remove()
@@ -26,15 +34,25 @@ main.signInBtn.onclick = function (event) {
   main.signInParent.setAttribute("css","../chanks/signIn.css");
 };
 ///////////////////////////////////////////////////////////////////////
-let ava = document.getElementById('avatarka');
-let userId = document.cookie.split('; ')
-    .filter(item => item.indexOf('userId') === 0)[0].split('=')[1];
-
-let currentUser = null;
-
-userId
-  ? fetch(`https://curasa.glitch.me/users/${userId}`)
+let ava = document.getElementById('avatarka'); 
+// let userName = document.cookie.split('; ')
+//     .filter(item => item.indexOf('userName') === 0)[0].split('=')[1];
+// // let currentUser = null;
+let userEmail = document.cookie.split('; ')
+    .filter(item => item.indexOf("userEmail") === 0)[0].split('=')[1]
+    console.log(userEmail)
+let userHash = document.cookie.split('; ').filter(item => item.indexOf("hash") === 0)[0].split('=')[1]
+console.log(userHash)   
+userEmail
+  ? fetch(`https://fea13-andrew.glitch.me/owner`)
     .then(response => response.json())
-    .then(user => currentUser = user)
+    .then(response => {currentUser = response
+        let hashValid = userHash === currentUser.passHash
+        let emailValid = userEmail === currentUser.email
+        console.log(currentUser.name)
+        hashValid && emailValid === true ?
+         document.getElementsByClassName('first')[0].appendChild(document.createElement("p")).textContent = currentUser.name
+          : console.log("Fail")
+    })
     .then(() => ava.src = currentUser.avatar)
   : null;
