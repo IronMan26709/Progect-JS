@@ -134,33 +134,84 @@ class RegisterPage extends HTMLElement {
     this.userPasswordRepeat = this.shadow.querySelector("#input-passwordRepeat")
     this.userPhoto = this.shadow.querySelector("#avatarka")
     this.btn = this.shadow.querySelector("#register-button")
-    this.preview = this.shadow.querySelector("#preview") 
-    // this.userPhoto.disabled = true
-    // this.userPasswordRepeat.disabled = true
-    // this.userPassword.disabled = true
-    // this.userPhone.disabled = true
+    this.btn.disabled = true
+    this.preview = this.shadow.querySelector("#preview")
+    this.userPhoto.disabled = true
+    this.userPasswordRepeat.disabled = true
+    this.userPassword.disabled = true
+    this.userPhone.disabled = true
+    this.registration = this.shadow.querySelector(".registration")
     this.userPassword.onchange = function (event) {
         document.cookie = `hash=${Sha256.hash(this.value)}`
+        
       }
-    this.userName.onchange = function (event) {
-                event.target.valid = event.target.value.length >= 2
+   ///////////////////////////////////////////////////    name  validation   /////////////////////////////////////////////////////// 
+    this.userName.oninput = function (event) {
+                event.target.valid = event.target.value.length > 6 && event.target.value.match(/\D/)
                 console.log( event.target.valid)
-               event.target.valid ? this.style.background = "#c7f5ac" : this.style.background = red
-               if(event.target.valid) {
-                this.userEmail.disabled = false
-                this.userPhone.disabled = false
-               }
-               else {
-                this.userEmail.disabled = true
-                this.userPhone.disabled = true
-               }
-            }.bind(this)
+                let positivValidCondition = function(){
+                  console.log(this.userName)
+                  this.userName.style.background = "#a8fb76";
+                  this.userEmail.disabled = false;
+                  this.userPhone.disabled = false;
+                }.bind(this)
+                let negativValidCondition = function(){
+                  this.userName.style.background = "#fcbbc7";
+                  this.userEmail.disabled = true;
+                  this.userPhone.disabled = true;
+                }.bind(this)
+               event.target.valid ? positivValidCondition() : negativValidCondition()
+    }.bind(this)
+    ////////////////////////////////////////////////   email validation     /////////////////////////////////////////////////////
+    this.userEmail.oninput = function(event){
+        let checkedEmail = event.target.value
+        let pass1 = this.userPassword
+        let inputEmail = this.userEmail
+        let photo = this.userPhoto
+         function checking(checkedEmail, inputEmail, pass1 ){
+         let respEmail
+            fetch("https://fea13-andrew.glitch.me/owner")
+              .then(response => response.json()) 
+            .then(response => {
+            let respEmail = response.email;
+            let compare 
+            respEmail === checkedEmail ? compare = true : compare = false
+            let valid = compare
+            valid ? inputEmail.style.background = "#a8fb76" : inputEmail.style.background = "#fcbbc7"
+            valid ? pass1.disabled = false : null
+            valid ? photo.disabled = false : null
+          })
+        }
+        checking(checkedEmail, inputEmail, pass1 )
+
+    }.bind(this)
+    //////////////////////////////////////////////// password  validation   /////////////////////////////////////////////////////
+    this.userPassword.oninput = function(event){
+     
+      let passInput2 = this.userPasswordRepeat
+      let pass = event.target.value
+      event.target.valid = pass.length > 8 && pass.match(/\d/) && !!pass.match ( /\D/ )
+      event.target.style.color = event.target.valid ? "blue" : "red"
+      passInput2.disabled = false
+      
+    }.bind(this)
+    this.userPasswordRepeat.oninput = function(event){
+      let regBtn = this.btn      
+      let passInput = this.userPassword
+      let passInput2 = this.userPasswordRepeat
+      let pass = event.target.value
+      let passValid = pass ===  passInput.value
+      event.target.style.color = passValid  ? "blue" : "red"
+      passValid ? passInput.style.background = "#a8fb76" : passInput.style.background = "#fcbbc7"
+      passValid ? passInput2.style.background = "#a8fb76" : passInput2.style.background = "#fcbbc7"
+      passValid ? regBtn.disabled = false : null
+    }.bind(this)
+    ////////////////////////////////////////////////     add photo    ///////////////////////////////////////////////////////////        
     this.shadow.querySelector('input[type="file"]').onchange = function (event) {
       let file = event.target.files[0]
       file.type.indexOf("image") === 0 ? this.preview.src = URL.createObjectURL(file) :
         console.error("NOT IMAGE!!!!!");   
     }.bind(this);
-
     this.btn.onclick = function (event) {
        this.remove();
       fetch("https://fea13-andrew.glitch.me/owner", {
@@ -183,6 +234,7 @@ class RegisterPage extends HTMLElement {
             document.cookie = `userEmail=${currentUserResponse.email};
             pass=${currentUserResponse.passHash}`;
             document.body.querySelector("#avatarka").src = currentUserResponse.avatar;
+            main.delRegSignInBtn();
             let first = document.getElementsByClassName('first')[0];     
             first.appendChild(document.createElement("p")).textContent = currentUserResponse.name;
           })

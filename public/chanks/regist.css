@@ -8,14 +8,13 @@
    background: #353535;
 
 }
-header{
-    display: block;
-}
 .regpage .reghead{
     background:  #4cb1ca;
     padding: 20px;
     color: whitesmoke;
     font-weight: 0;
+    display: flex;
+    justify-content: space-between;
 }
 .reghead h1{
     margin: 0 auto;
@@ -94,9 +93,6 @@ button:hover{
     background: red;
     transform: scale(1.2)
 }
-img {position: absolute;
-    width: 250px;
-    height: 250px;
-    left: -22px;
-    top: 85px;
+img{
+    width:30px;
 }

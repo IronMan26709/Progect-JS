@@ -5,7 +5,7 @@ class NewPocket extends HTMLElement {
     super()
     this.shadow = this.attachShadow ( { mode: "closed" } )
     this.shadow.innerHTML = `
-      <link rel="stylesheet" href="/new-pocket.css">
+      <link rel="stylesheet" href="../chanks/new-pocket.css">
       <form id="new-pocket-form">
         <span>Pocket name: </span>
         <input name="pocket-name" id="pocket-name" placeholder="Enter the name of your pocket">

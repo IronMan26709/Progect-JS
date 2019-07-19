@@ -1,12 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/style.css">
-	<script src="https://cdn.rawgit.com/chrisveness/crypto/4e93a4d/sha256.js"></script>
-	<title>Manage Your Money</title>
-</head> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
     <link id="favicon" rel="icon" href="https://cdn.glitch.com/c54bf865-364f-4c70-a071-e24900743fd0%2Fa-level-ico.png?v=1561722122996" type="image/x-icon">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/fonts.css">
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Mali|Poppins|Roboto|Montserrat|&display=swap" rel="stylesheet">
     <script src="https://cdn.rawgit.com/chrisveness/crypto/4e93a4d/sha256.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -59,7 +51,11 @@
 				</div>
 			</header>
 			<main>
-				<p id="Show-pocket">Show current pocket</p>
+				<section class="buttonWrap">
+					<div class="Show-pocket"><p>Show current pocket</p></div>
+					<div class="newEntries"><p>Новая трата</p></div>
+				</section>
+				
 				<!-- <section>
 					<h1>Кошельки пользователя</h1>
 					<p onclick = "newWallet()" class="btnNewWallet"> Добавить Кошелек </p>	
@@ -104,7 +100,8 @@
 			</div> -->
 			<!-- ------------------------------------------------------>
 			<!-- <div id="signInWindw"></div>	
-			<div id="registrlog"></div>	 -->					
+			<div id="registrlog"></div>	 -->	
+			<new-entries-element></new-entries-element>				
 		</main>	
 		
 		<footer>
@@ -121,6 +118,7 @@
 		<script src="js/regist.js"></script>
 		<script src="js/index.js"></script>
 		<script src="js/new-pocket.js"></script>
+		<script src="js/new-entries.js"></script>
 	</div>
 </body>
 </html>

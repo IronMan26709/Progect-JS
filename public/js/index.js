@@ -7,14 +7,16 @@ document.getElementsByTagName ( "main" )[0]
 function showCurrentPocket ( event ) {
   console.log ( event.type, event.pocketData )
 }
-///////////////////////////////////////   Delete Sigh In and Register buttons    /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 main.regBtn = document.getElementById('registParagraph')
 main.signInBtn = document.getElementById("sign-inBtn")
-main.showPocket = document.getElementById("Show-pocket")
+main.showPocket = document.getElementsByClassName("Show-pocket")[0]
 main.showPocket.onclick = function (event) {
   main.appendChild(document.createElement("new-pocket-element"))
 }
-main. delRegSignInBtn = function() {
+
+////////////////////////      Delete Sigh In and Register buttons    //////////////////////////////////////////////
+main.delRegSignInBtn = function() {
       main.regBtn.remove(),
       main.signInBtn.remove()
 }
@@ -28,31 +30,42 @@ main.regBtn.onclick = function(event) {
 };
 ////////////////////////////////////////////         Sign - In    ///////////////////////////////////////////////
 main.signInBtn.onclick = function (event) {
-  main.delRegSignInBtn();
+  // main.delRegSignInBtn();
   main.signInParent = main.appendChild(document.createElement("signin-page"));
   main.signInParent.setAttribute("markup","../chanks/signIn.html");
   main.signInParent.setAttribute("css","../chanks/signIn.css");
 };
 ///////////////////////////////////////////////////////////////////////
 let ava = document.getElementById('avatarka'); 
-// let userName = document.cookie.split('; ')
-//     .filter(item => item.indexOf('userName') === 0)[0].split('=')[1];
-// // let currentUser = null;
-let userEmail = document.cookie.split('; ')
-    .filter(item => item.indexOf("userEmail") === 0)[0].split('=')[1]
-    console.log(userEmail)
-let userHash = document.cookie.split('; ').filter(item => item.indexOf("hash") === 0)[0].split('=')[1]
-console.log(userHash)   
-userEmail
-  ? fetch(`https://fea13-andrew.glitch.me/owner`)
-    .then(response => response.json())
-    .then(response => {currentUser = response
-        let hashValid = userHash === currentUser.passHash
-        let emailValid = userEmail === currentUser.email
-        console.log(currentUser.name)
-        hashValid && emailValid === true ?
-         document.getElementsByClassName('first')[0].appendChild(document.createElement("p")).textContent = currentUser.name
-          : console.log("Fail")
-    })
-    .then(() => ava.src = currentUser.avatar)
-  : null;
+
+
+
+
+/////////////////////////////////////////      delete new-entries-element   ////////////////////////////////////////
+
+document.body.addEventListener( "deleteEntries", removeEntriesElement )
+  
+function removeEntriesElement(event){
+  document.getElementsByTagName("new-entries-element")[0].remove()    
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// main.userEmail = document.cookie.split('; ')
+//     .filter(item => item.indexOf("userEmail") === 0)[0].split('=')[1]
+// main.userHash = document.cookie.split('; ').filter(item => item.indexOf("hash") === 0)[0].split('=')[1]  
+// main.userEmail
+//   ? fetch(`https://fea13-andrew.glitch.me/owner`)
+//     .then(response => response.json())
+//     .then(response => {currentUser = response
+//         main.hashValid = main.userHash === currentUser.passHash
+//         main.emailValid = main.userEmail === currentUser.email
+//         main.hashValid && main.emailValid === true ? main.InputSelection()    
+//           : console.log("Fail")
+//     })
+//     .then(() => ava.src = currentUser.avatar)
+//   : null;
+// main.InputSelection = function(){
+//             main.delRegSignInBtn()
+//             ava.src = currentUser.avatar
+//             document.getElementsByClassName('first')[0].appendChild(document.createElement("p")).textContent = currentUser.name
+// }
