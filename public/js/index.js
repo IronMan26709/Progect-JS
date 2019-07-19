@@ -30,7 +30,7 @@ main.regBtn.onclick = function(event) {
 };
 ////////////////////////////////////////////         Sign - In    ///////////////////////////////////////////////
 main.signInBtn.onclick = function (event) {
-  // main.delRegSignInBtn();
+  main.delRegSignInBtn();
   main.signInParent = main.appendChild(document.createElement("signin-page"));
   main.signInParent.setAttribute("markup","../chanks/signIn.html");
   main.signInParent.setAttribute("css","../chanks/signIn.css");
@@ -48,6 +48,16 @@ document.body.addEventListener( "deleteEntries", removeEntriesElement )
 function removeEntriesElement(event){
   document.getElementsByTagName("new-entries-element")[0].remove()    
 }
+
+
+
+
+document.body.addEventListener( "deleteRegist", removeRegistElement )
+
+function removeRegistElement(event){
+  document.getElementsByTagName("register-page")[0].remove()    
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // main.userEmail = document.cookie.split('; ')

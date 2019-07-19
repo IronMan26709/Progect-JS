@@ -97,6 +97,13 @@ class RegisterPage extends HTMLElement {
     super()
     this.shadow = this.attachShadow({ mode: "closed" })
 
+
+
+
+
+
+
+    
   }
 
   connectedCallback() {
@@ -143,6 +150,9 @@ class RegisterPage extends HTMLElement {
     this.registration = this.shadow.querySelector(".registration")
     this.userPassword.onchange = function (event) {
         document.cookie = `hash=${Sha256.hash(this.value)}`
+
+
+   
         
       }
    ///////////////////////////////////////////////////    name  validation   /////////////////////////////////////////////////////// 
@@ -162,6 +172,8 @@ class RegisterPage extends HTMLElement {
                 }.bind(this)
                event.target.valid ? positivValidCondition() : negativValidCondition()
     }.bind(this)
+
+
     ////////////////////////////////////////////////   email validation     /////////////////////////////////////////////////////
     this.userEmail.oninput = function(event){
         let checkedEmail = event.target.value
@@ -213,7 +225,6 @@ class RegisterPage extends HTMLElement {
         console.error("NOT IMAGE!!!!!");   
     }.bind(this);
     this.btn.onclick = function (event) {
-       this.remove();
       fetch("https://fea13-andrew.glitch.me/owner", {
         method: "POST",
         headers: {
@@ -234,11 +245,17 @@ class RegisterPage extends HTMLElement {
             document.cookie = `userEmail=${currentUserResponse.email};
             pass=${currentUserResponse.passHash}`;
             document.body.querySelector("#avatarka").src = currentUserResponse.avatar;
-            main.delRegSignInBtn();
             let first = document.getElementsByClassName('first')[0];     
             first.appendChild(document.createElement("p")).textContent = currentUserResponse.name;
+            document.body.dispatchEvent(new Event("deleteRegist"))
           })
-    }.bind(this);   
+    }.bind(this);
+    ////////////////////////////////////////////////////    Closing this  element   /////////////////////////////////////////////////////////
+
+      this.closing = this.shadow.querySelector(".closing")
+      this.closing.onclick = function(event){
+           document.body.dispatchEvent(new Event("deleteRegist"))
+      }.bind(this)     
   }    
 }
 

@@ -28,8 +28,8 @@ class NewEntries extends HTMLElement {
         `
         this.getAllPockets()  
           
-        let closing = this.shadow.querySelector(".closing")
-        closing.onclick = function(event){
+        this.closing = this.shadow.querySelector(".closing")
+        this.closing.onclick = function(event){
              document.body.dispatchEvent(new Event("deleteEntries"))
         }.bind(this)
         // closing.onclick = function(event){

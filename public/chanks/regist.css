@@ -96,3 +96,10 @@ button:hover{
 img{
     width:30px;
 }
+#preview{
+    position: absolute;
+    width: 250px;
+    height: 250px; 
+    left: -22px;    
+    top: 85px;
+}
