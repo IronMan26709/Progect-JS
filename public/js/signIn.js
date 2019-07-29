@@ -32,7 +32,14 @@ class SignInPage extends HTMLElement {
       .then(() => this.getElems())
   }
 
-  getElems() {}    
+  getElems() {
+    ////////////////////////////////////////////////////    Closing this  element   /////////////////////////////////////////////////////////
+
+  this.closing = this.shadow.querySelector(".closing")
+  this.closing.onclick = function(event){
+       document.body.dispatchEvent(new Event("deleteSignIn"))
+  }.bind(this)
+  }         
 }
 
 customElements.define("signin-page",SignInPage)

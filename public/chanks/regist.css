@@ -1,20 +1,31 @@
+input:disabled {
+    background-color: (255, 255, 255, 0.7);
+}
+
 .regpage{
    width: 700px;
-   height: 400px;
    margin: 0 auto;
-   position: absolute;
-   top:0px;
-   left:0px;
+   position: relative;
+   top:-50px;
    background: #353535;
-
 }
+.closing {
+    cursor: pointer;
+    width: 20px;
+}
+
+.closing:hover {
+    opacity: 0.6;
+}
+
 .regpage .reghead{
     background:  #4cb1ca;
     padding: 20px;
     color: whitesmoke;
-    font-weight: 0;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    font-family: Roboto Thin;
 }
 .reghead h1{
     margin: 0 auto;
@@ -44,9 +55,6 @@
 }
 .leftside .form-group{
     display: block;
-    position: relative;
-    width:250px;
-    height: 250px;
 }
 .rightside{
     width:50%;
@@ -55,8 +63,10 @@
 }
 
 .regbody{
+    padding-top: 15px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .form{
     width: 100%;
@@ -86,7 +96,7 @@ button ,#register-button{
     padding: 5px 15px;
     margin-left: 35%;
     outline:none;
-    transition: all 0.8s ease
+    transition: all 0.3s linear;
 }
 button:hover{
     cursor: pointer;
@@ -97,9 +107,9 @@ img{
     width:30px;
 }
 #preview{
-    position: absolute;
-    width: 250px;
-    height: 250px; 
-    left: -22px;    
-    top: 85px;
+   width: 250px;
+   max-height: 250px;    
+}
+h2{
+    margin:10px 0 10px 0;
 }

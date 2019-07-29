@@ -2,25 +2,27 @@
 	box-sizing: border-box
 } 
 .componentWrap{
-	width:700px;
-	display:block;
-	position: absolute;
-	color:#353535;
+	width: 700px;
+    margin: 0 auto;
+    position: relative;
+    top: -50px;
+    background: #353535;
 }
 header{
-	width:100%;
-	height:77px;
-	background: #4cb1ca;
-	padding: 13px;
-	display: flex;
-	justify-content: space-between;
+    background: #4cb1ca;
+    padding: 20px;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Roboto Thin;
 }
 header > h1{
-	color: whitesmoke;
-	margin:5px 0 5px 10px;
-	font-weight: 700;
-	font-family: open sans;
 	font-size: 32px;
+	margin: 0 auto;
+    padding-left: 45px;
+    color: whitesmoke;
+    font-family: Roboto Thin;
 }
 
 .pocketsSelection{
@@ -33,8 +35,8 @@ header > h1{
 	position: absolute;
 	width:100px;
 	display:block;
-	left:203px;
-	top:45px;
+	left:212px;
+	top:44px;
 	
 }
 .new-entry-form{
@@ -43,10 +45,6 @@ header > h1{
 	position: relative;
 	flex-direction: column;
 	justify-content:space-around;
-}
-.pocket{
-	display:flex;
-	justify-content:flex-start;
 }
 input{
     height: 25px;
@@ -68,6 +66,9 @@ input{
 	flex-wrap: wrap;
 }
 .pocket{
+	width:191px;
+	display:flex;
+	justify-content:flex-start;
 	height: 25px;
     margin: 5px 0 10px;
     border: 1px solid #4cb1ca;
@@ -83,15 +84,28 @@ input{
 	align-items: center;
 }
 button{
-
     border-radius: 5px;
     background: #03738f;
     border: 0;
     color: whitesmoke;
     padding: 5px 15px;
+    margin: 0 auto;
+    display: block;
     outline: none;
-    transition: all 0.8s ease
+    transition: all 0.3s linear;
+}
+button:hover{
+ cursor: pointer;
+    transform: scale(1.2)
 }
 img{
 	width:30px;
+}
+.closing {
+    cursor: pointer;
+    width: 20px;
+}
+
+.closing:hover {
+    opacity: 0.6;
 }

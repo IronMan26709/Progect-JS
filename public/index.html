@@ -28,8 +28,8 @@
 						</div>
 						<menu class = "burger">
 								<div class="first">
-									<p id= "sign-inBtn" >Вход</p>
-									<p id="registParagraph" >Регистрация</p>
+									<span id= "sign-inBtn" >Вход</span>
+									<span id="registParagraph" >Регистрация</span>
 								</div>
 								<div class="seccond">
 									<img  id ="avatarka" src=" ../avatar/i05.png " alt="avatar">
@@ -51,10 +51,12 @@
 				</div>
 			</header>
 			<main>
-				<section class="buttonWrap">
-					<div class="Show-pocket"><p>Show current pocket</p></div>
-					<div class="newEntries"><p>Новая трата</p></div>
-				</section>
+				<div class="buttonWrap">
+					<div class="btn Show-pocket">Show current pocket</div>
+					<div class="btn newEntries">Новая трата</div>
+					<div class="btn NewArrival"> New arrival</div>
+					<!-- <div class="newPocketInfo"> Отчёт по кошелькам</div> -->
+				</div>
 				
 				<!-- <section>
 					<h1>Кошельки пользователя</h1>
@@ -101,7 +103,7 @@
 			<!-- ------------------------------------------------------>
 			<!-- <div id="signInWindw"></div>	
 			<div id="registrlog"></div>	 -->	
-			<new-entries-element></new-entries-element>				
+		<!-- 	<new-entries-element></new-entries-element> -->				
 		</main>	
 		
 		<footer>
@@ -119,6 +121,7 @@
 		<script src="js/index.js"></script>
 		<script src="js/new-pocket.js"></script>
 		<script src="js/new-entries.js"></script>
+		<script src="js/newArrival.js"></script>
 	</div>
 </body>
 </html>

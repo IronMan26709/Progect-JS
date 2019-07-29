@@ -7,7 +7,7 @@ class NewEntries extends HTMLElement {
         <section class = "componentWrap">
             <header>
                 <h1>Записать расход</h1>
-                <img class ="closing" src ="png/times-solid.svg">
+               <img class ="closing" src ="png/times-solid.svg" width="30" height="30">
             </header>
             <div class ="wrapForm"> 
                 <form id="new-entry-form" class ="new-entry-form">
@@ -32,12 +32,7 @@ class NewEntries extends HTMLElement {
         this.closing.onclick = function(event){
              document.body.dispatchEvent(new Event("deleteEntries"))
         }.bind(this)
-        // closing.onclick = function(event){
-        //     console.log("dada")
-        //     this.shadow.dispatchEvent ( new Event ( 'closeThis' ) )
-        // }.bind(this)
-        
-
+    
         ////////////////////////////////////////     Валидация на остаток    //////////////////////////////////////////////
 
         this.expenseArea =this.shadow.querySelector("#new-entry-form")
@@ -45,13 +40,11 @@ class NewEntries extends HTMLElement {
         this.nameCurrency = this.shadow.querySelector("input[name=custumer-choise]")
         this.coment = this.shadow.querySelector("input[name=coment]")
         this.pockets = this.shadow.querySelector(".selection-area")
-        this.pockets.onchange = function(ivent){
+        this.pockets.onchange = function(event){
                this.nameCurrency.valid = this.nameCurrency.value.length > 0 
                this.inpCurrency.valid = this.inpCurrency.value > 0 ? true : false
                this.inputsValid = this.nameCurrency.valid && this.inpCurrency.valid === true 
-               this.validationPockets()
-
-            
+               this.validationPockets()        
 
         }.bind(this)
     }
